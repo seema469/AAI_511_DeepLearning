@@ -1,28 +1,11 @@
 # Classification of Composers Using Convolutional and Long Short-Term Memory Networks
 
 ## Project Overview
-This project aims to classify composers using MIDI files using three distinct computational approaches: 
+This project is designed to classify composers using MIDI files through two distinct computational approaches: 1) Convolutional Neural Networks (CNN) and 2) Long Short-Term Memory networks (LSTM) that utilize fixed sequence tokens, akin to methods used in Natural Language Processing (NLP). Evaluating these methods with accuracy, precision, and recall metrics, the results reveal that while all approaches are insightful, the LSTM using fixed sequence tokens excels in identifying unique musical styles, offering more precise composer classification. This enhances automated music analysis and supports the development of advanced digital musicology and interactive educational tools.
 
-1) Convolutional Neural Networks (CNN),
-2) Long Short-Term Memory networks (LSTM) as a traditional time series model, and
-3) LSTM utilizing fixed sequence tokens, similar to methods used in Natural Language Processing (NLP). 
+## Dataset
 
-For this project, we utilized the "midi_classic_music" dataset, available on Kaggle (midi_classic_music (kaggle.com)).To focus our analysis, we selected MIDI files from four prominent composers: Bach, Beethoven, Mozart, and Chopin. 
-
-The dataset breakdown for these composers is as follows:
-
-●	Bach: 925 MIDI files
-
-●	Beethoven: 211 MIDI files
-
-●	Chopin: 136 MIDI files
-
-●	Mozart: 256 MIDI files
-
-This subset totals 1,528 MIDI files, providing a substantial volume for processing and analysis in our project.
-
-
-## Key Features
+We have used the "midi_classic_music" dataset from Kaggle, focusing specifically on MIDI files from four renowned composers: Bach, Beethoven, Mozart, and Chopin. The dataset comprises 925 MIDI files from Bach, 211 from Beethoven, 136 from Chopin, and 256 from Mozart, totaling 1,528 files.
 
 To address the imbalance and enhance the diversity of our training dataset, we implemented data augmentation techniques for MIDI files associated with composers Beethoven, Mozart, and Chopin. Recognizing the need to bolster the dataset for these composers, we generated additional variations of the existing MIDI files by applying transformations such as time stretching which alters the tempo while maintaining the original pitch of the audio. These augmentations not only increased the volume of data but also introduced a richer set of examples that capture a broader spectrum of each composer's style. Conversely, to maintain a balanced dataset, we strategically reduced the number of MIDI files for Bach, who was over-represented in our initial dataset. This approach ensured that our model was trained on a more evenly distributed dataset, which is crucial for avoiding bias towards any particular composer's style and enhancing the model's ability to generalize across different musical compositions. 
 
@@ -46,7 +29,7 @@ The LSTM (NLP style) model was trained/validated/test on a split of the data seq
 
 ### LSTM (NLP style) model
 
-- **Accuracy**: Reached up to 92% on unseen test dataset.
+- **Accuracy**: Reached up to 93% on unseen test dataset.
 - **Confusion Matrix**: Showed high precision and recall across multiple composer categories, particularly effective at distinguishing between composers with distinct styles.
 - **Parameter Tuning**: Best results were achieved with a batch size of 256 and sequence length of 100.
 
